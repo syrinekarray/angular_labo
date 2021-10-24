@@ -1,5 +1,9 @@
-export interface resultat {
+import { Test } from './../tests/test';
+export interface Resultat {
   id: number;
-  description: string;
-  res: string;
+  text: string;
+}
+export interface CreateResultat {
+  text: string;
+  test?: Test;
 }

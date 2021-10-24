@@ -1,13 +1,9 @@
-
 <h2>My Tests</h2>
 
-
-
-<ul class="users">
+<ul>
   <li *ngFor="let test of tests">
-    <a routerLink="/resultat/{{test.id}}"> Show result </a>
-      <span class="badge">{{test.id}}</span> {{test.price}}
-    >
-
+    <h3>test name : {{ test.name }}</h3>
+    <h4>test price : {{ test.price }}</h4>
+    <a routerLink="/resultat/{{ test.id }}"> see result </a>
   </li>
 </ul>

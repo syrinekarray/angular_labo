@@ -1,0 +1,15 @@
+<form #form>
+  <span>Email : </span>
+  <input type="email" name="email" [(ngModel)]="userCreate.email" />
+  <span>First Name : </span>
+
+  <input type="text" name="firstname" [(ngModel)]="userCreate.firstname" />
+  <span>Last Name : </span>
+
+  <input type="text" name="lastname" [(ngModel)]="userCreate.lastname" />
+  <span>Password : </span>
+
+  <input type="text" name="password" [(ngModel)]="userCreate.password" />
+
+  <button (click)="add()">Create User</button>
+</form>

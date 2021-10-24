@@ -1,0 +1,14 @@
+<form>
+  <span>name</span>
+  <input type="text" name="name" [(ngModel)]="testCreate.name" />
+  <span>price</span>
+  <input type="text" name="price" [(ngModel)]="testCreate.price" />
+  <span>user</span>
+  <select name="user" [(ngModel)]="testCreate.user.id">
+    <option *ngFor="let user of users" [value]="user.id">
+      {{ user.firstname }} {{ user.lastname }}
+    </option>
+  </select>
+
+  <button (click)="createTest()">Create Test</button>
+</form>

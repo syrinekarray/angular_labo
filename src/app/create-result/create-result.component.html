@@ -1,0 +1,19 @@
+<form>
+  <span>Tests</span>
+  <select name="test" [(ngModel)]="result.test">
+    <option *ngFor="let test of tests" [value]="test">
+      {{ test.id }} - {{ test.name }}
+    </option>
+  </select>
+  <br />
+  <span>Result</span>
+  <br />
+  <textarea
+    name="price"
+    [(ngModel)]="result.text"
+    cols="30"
+    rows="10"
+  ></textarea>
+
+  <button (click)="createResult()">Create Result</button>
+</form>
