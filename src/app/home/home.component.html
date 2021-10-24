@@ -1,0 +1,33 @@
+<ng-container *ngIf="role === 'user'">
+  <app-tests [id]="user!.id"></app-tests>
+</ng-container>
+
+<ng-container *ngIf="role === 'tech'">
+  <h1>{{ user!.firstname }} {{ user!.lastname }}</h1>
+  <button (click)="addUser()">Add user</button>
+  <button (click)="addTest()">Add test</button>
+  <button (click)="addResult()">Add result</button>
+
+  <ng-container *ngIf="userForm">
+    <app-create-user></app-create-user>
+  </ng-container>
+  <ng-container *ngIf="testForm">
+    <app-create-test></app-create-test>
+  </ng-container>
+  <ng-container *ngIf="resultForm">
+    <app-create-result></app-create-result>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="role === 'admin'">
+  <h1>{{ user!.firstname }} {{ user!.lastname }}</h1>
+  <button (click)="addTech()">Add Tech</button>
+  <button (click)="showUsers()">List user</button>
+
+  <ng-container *ngIf="techForm">
+    <app-create-user role="admin"></app-create-user>
+  </ng-container>
+  <ng-container *ngIf="usersList">
+    <app-users></app-users>
+  </ng-container>
+</ng-container>

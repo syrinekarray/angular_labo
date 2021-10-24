@@ -1,6 +1,6 @@
-import { User } from './../users/user';
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { TestService } from './../services/test.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 import { Test } from './test';
 
 @Component({
@@ -9,15 +9,19 @@ import { Test } from './test';
   styleUrls: ['./tests.component.css'],
 })
 export class TestsComponent implements OnInit {
+  @Input() id: number = 0;
   tests: Test[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private testService: TestService) {}
 
   ngOnInit() {
     this.getTests();
   }
 
   getTests(): void {
-    this.userService.getAllTests().subscribe((tests) => (this.tests = tests));
+    this.testService.getTestsByUserId(this.id).subscribe((data: any) => {
+      this.tests = data;
+      console.log(data);
+    });
   }
 }

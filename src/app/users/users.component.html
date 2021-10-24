@@ -1,23 +1,6 @@
-<p style="color: yellow;">users works!</p>
-
-<h2>My Users</h2>
-
-<div>
-  <label for="new-user">User name: </label>
-  <input id="new-user" #userName />
-
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button class="add-button" (click)="add(userName.value); userName.value=''">
-    Add user
-  </button>
-</div>
-
-<ul class="users">
+<ul>
   <li *ngFor="let user of users">
-    <a routerLink="/detail/{{user.id}}"> take </a>
-      <span class="badge">{{user.id}}</span> {{user.name}}
-    >
-    <button class="delete" title="delete user"
-      (click)="delete(user)">x</button>
+    <span> {{ user.firstname }} {{ user.lastname }}</span>
+    <span> -- Role {{ user.role }}</span>
   </li>
 </ul>

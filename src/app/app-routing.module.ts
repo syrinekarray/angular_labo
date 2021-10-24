@@ -1,14 +1,17 @@
-import { TestsComponent } from './tests/tests.component';
-import { ResultatComponent } from './resultat/resultat.component';
-import { DocteurComponent } from './docteur/docteur.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoggedInGuard } from './shared/logged-in.guard';
+import { ResultatComponent } from './resultat/resultat.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'test', component: TestsComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoggedInGuard] },
+  { path: '', component: HomeComponent },
   { path: 'resultat/:id', component: ResultatComponent },
-  { path: 'name/:id', component: DocteurComponent },
+
+  { path: 'createuser', component: UsersComponent },
 ];
 
 @NgModule({
