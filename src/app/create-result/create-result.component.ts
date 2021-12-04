@@ -12,7 +12,7 @@ export class CreateResultComponent implements OnInit {
   constructor(private testService: TestService) {}
   result: CreateResultat = {
     text: '',
-    test: undefined,
+    testId: undefined,
   };
   tests: Test[] = [];
   ngOnInit(): void {
@@ -26,6 +26,8 @@ export class CreateResultComponent implements OnInit {
   }
 
   createResult() {
+    console.log(this.result);
+
     this.testService.createResult(this.result).subscribe((data: any) => {
       console.log(data);
     });

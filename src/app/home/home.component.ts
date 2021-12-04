@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from './../users/user';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  constructor(private router: Router) {}
   role = '';
   user: User | null = null;
 
@@ -16,13 +18,16 @@ export class HomeComponent implements OnInit {
   resultForm = false;
   techForm = false;
   usersList = false;
-  constructor() {}
 
   ngOnInit(): void {
-    const data = JSON.parse(localStorage.getItem('token')!);
+    if (localStorage.getItem('token')) {
+      const data = JSON.parse(localStorage.getItem('token')!);
 
-    this.role = data.user.role;
-    this.user = data.user;
+      this.role = data.user.role;
+      this.user = data.user;
+    } else {
+      this.router.navigate(['/', 'login']);
+    }
   }
 
   addUser() {
@@ -59,5 +64,8 @@ export class HomeComponent implements OnInit {
     this.resultForm = false;
     this.techForm = false;
     this.usersList = true;
+  }
+  logout() {
+    localStorage.clear();
   }
 }

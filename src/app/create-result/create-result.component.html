@@ -1,7 +1,7 @@
 <form>
   <span>Tests</span>
-  <select name="test" [(ngModel)]="result.test">
-    <option *ngFor="let test of tests" [value]="test">
+  <select name="test" [(ngModel)]="result.testId">
+    <option *ngFor="let test of tests" [value]="test.id">
       {{ test.id }} - {{ test.name }}
     </option>
   </select>

@@ -24,4 +24,7 @@ export class TestsComponent implements OnInit {
       console.log(data);
     });
   }
+  logout() {
+    localStorage.clear();
+  }
 }
